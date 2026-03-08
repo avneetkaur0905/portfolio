@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avneet Kaur — AI/ML Engineer & Developer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --bg2: #f3efe8;
+      --bg3: #ede8df;
+      --paper: #ffffff;
+      --ink: #1c1a17;
+      --ink2: #4a4640;
+      --muted: #9a9188;
+      --border: #e8e2d8;
+      --terracotta: #b87355;
+      --tc-light: #d49070;
+      --tc-pale: #fdf0e8;
+      --sage: #6b8c6b;
+      --dusty: #c4b8a8;
+      --nav-h: 72px;
+
+      /* FONT SIZES — bumped up */
+      --fs-xs: 0.8rem;
+      --fs-sm: 0.9rem;
+      --fs-base: 1rem;
+      --fs-md: 1.05rem;
+      --fs-lg: 1.2rem;
+      --fs-xl: 1.5rem;
+      --fs-2xl: 2rem;
+      --fs-3xl: 2.8rem;
+      --fs-hero: clamp(3.8rem, 7vw, 6.5rem);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4rem;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--terracotta);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .nav-links li button,
+    .nav-links li a {
+      padding: 0.55rem 1.1rem;
+      color: var(--ink2);
+      font-size: var(--fs-xs);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: 'Jost', sans-serif;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links li button:hover,
+    .nav-links li a:hover {
+      color: var(--terracotta);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--terracotta) !important;
+      color: var(--terracotta) !important;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--terracotta) !important;
+      color: #fff !important;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 1.5px;
+      width: 28px;
+      background: var(--ink);
+      transition: transform 0.3s, opacity 0.3s, width 0.3s;
+    }
+
+    .hamburger span:nth-child(2) {
+      width: 20px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+      width: 28px;
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg);
+      z-index: 999;
+      overflow-y: auto;
+      padding: 1.5rem 2rem 4rem;
+      flex-direction: column;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu button,
+    .mobile-menu a {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink2);
+      font-size: var(--fs-sm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      text-align: left;
+      transition: color 0.2s;
+      width: 100%;
+    }
+
+    .mobile-menu button:hover,
+    .mobile-menu a:hover {
+      color: var(--terracotta);
+    }
+
+    /* ── PAGES ── */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeUp 0.38s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.95rem 2rem;
+      background: var(--ink);
+      color: var(--bg);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.25s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.95rem 2rem;
+      background: transparent;
+      color: var(--ink);
+      font-size: var(--fs-xs);
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: border-color 0.25s, color 0.25s;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+
+    /* ── IMAGE PLACEHOLDER ── */
+    .img-placeholder {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      border: 1.5px dashed var(--dusty);
+    }
+
+    .img-placeholder .ip-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.5;
+    }
+
+    .img-placeholder .ip-label {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .img-placeholder .ip-hint {
+      font-size: 0.72rem;
+      color: var(--dusty);
+      margin-top: 0.25rem;
+    }
+
+    .img-placeholder .ip-badge {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .img-placeholder>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-placeholder .img-title {
+      display: none;
+    }
+
+    .img-placeholder.has-image {
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+
+    .img-placeholder.has-image>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .ach-photo .img-placeholder.has-image>img {
+      object-fit: contain;
+    }
+
+    .img-placeholder.has-image:hover>img {
+      transform: scale(1.05);
+    }
+
+    /* Title is now outside the image — hide any leftover inside */
+    .img-placeholder.has-image .img-title {
+      display: none;
+    }
+
+    /* Above-image title label */
+    .ach-photo-title {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.6rem 0 0.55rem;
+      border-top: 2px solid var(--terracotta);
+      margin-bottom: 0;
+    }
+
+    .ach-photo-title .apt-bar {
+      width: 3px;
+      height: 16px;
+      background: var(--terracotta);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .ach-photo-title .apt-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+    }
+
+    .ach-photo-title .apt-badge {
+      margin-left: auto;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: var(--tc-pale);
+      border: 1px solid var(--tc-light);
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── HOME ── */
+    .hero {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 5.5rem 4rem 4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+      align-items: center;
+      min-height: calc(88vh - var(--nav-h));
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--terracotta);
+      flex-shrink: 0;
+    }
+
+    .hero-eyebrow span {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-hero);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      color: var(--ink);
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--terracotta);
+      display: block;
+    }
+
+    .hero-role {
+      font-size: var(--fs-sm);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-p {
+      font-size: var(--fs-md);
+      line-height: 1.95;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* profile card */
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 56px rgba(28, 26, 23, 0.07);
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      right: 14px;
+      bottom: 14px;
+      border: 1px solid var(--border);
+      z-index: -1;
+    }
+
+    .hc-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    .hc-body {
+      padding: 2rem 2.2rem;
+    }
+
+    .hc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .hc-title {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hc-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .hc-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hc-stat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+
+    .hc-stat-l {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .hc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.85rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      border-radius: 20px;
+    }
+
+    .tag.accent {
+      background: var(--tc-pale);
+      border-color: var(--tc-light);
+      color: var(--terracotta);
+    }
+
+    /* quick nav tiles */
+    .tiles {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 4rem 5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .tile {
+      background: var(--paper);
+      padding: 2.2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .tile:hover {
+      background: var(--bg2);
+    }
+
+    .tile-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .tile-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-lg);
+      margin-bottom: 0.35rem;
+    }
+
+    .tile-sub {
+      font-size: var(--fs-xs);
+      color: var(--muted);
+    }
+
+    /* ── SECTION COMMON ── */
+    .section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 5.5rem 4rem;
+    }
+
+    .sec-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .sec-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .sec-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .sec-eyebrow span {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .sec-title em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .sec-desc {
+      font-size: var(--fs-md);
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 560px;
+      margin-top: 0.8rem;
+      line-height: 1.8;
+    }
+
+    .sec-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-top: 1.8rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-org {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-2xl);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+
+    .exp-role {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-period {
+      font-size: var(--fs-sm);
+      color: var(--muted);
+    }
+
+    .exp-img {
+      margin-top: 1.5rem;
+      aspect-ratio: 16/9;
+    }
+
+    .exp-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .exp-points li {
+      font-size: var(--fs-md);
+      line-height: 1.85;
+      color: var(--ink2);
+      font-weight: 300;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .exp-points li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta);
+      top: 0.15rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .proj-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .proj-card:hover {
+      box-shadow: 0 14px 48px rgba(28, 26, 23, 0.1);
+      transform: translateY(-4px);
+      border-color: var(--dusty);
+    }
+
+    .proj-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    .proj-body {
+      padding: 2rem 2.2rem;
+    }
+
+    .proj-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.85rem;
+      background: var(--tc-pale);
+      border: 1px solid var(--tc-light);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .proj-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .proj-subtitle {
+      font-size: var(--fs-xs);
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+      font-style: italic;
+    }
+
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .stack-tag {
+      padding: 0.25rem 0.7rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--ink2);
+      border-radius: 2px;
+    }
+
+    .proj-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .proj-points li {
+      font-size: var(--fs-sm);
+      line-height: 1.8;
+      color: var(--ink2);
+      font-weight: 300;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .proj-points li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta);
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 2.2rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .skill-group:hover {
+      box-shadow: 0 8px 28px rgba(28, 26, 23, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .sg-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    .sg-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .sg-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    /* Photo gallery */
+    .ach-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .ach-photo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ach-photo .img-placeholder {
+      flex: 1;
+      aspect-ratio: 4/3;
+    }
+
+    /* List */
+    .ach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .ach-item {
+      display: grid;
+      grid-template-columns: 3rem 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.8rem 2.2rem;
+      background: var(--paper);
+      transition: background 0.2s;
+    }
+
+    .ach-item:hover {
+      background: var(--bg2);
+    }
+
+    .ach-icon {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+
+    .ach-title {
+      font-size: var(--fs-md);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .ach-sub {
+      font-size: var(--fs-sm);
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .ach-badge {
+      padding: 0.3rem 0.9rem;
+      white-space: nowrap;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 20px;
+    }
+
+    .gold {
+      background: #fdf6e0;
+      border: 1px solid #e8c96a;
+      color: #a07830;
+    }
+
+    .silver {
+      background: #f0f0f0;
+      border: 1px solid #c8c8c8;
+      color: #707070;
+    }
+
+    .intl {
+      background: #e8f0fd;
+      border: 1px solid #8ab0e0;
+      color: #3060a0;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .edu-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .edu-card:hover {
+      box-shadow: 0 8px 32px rgba(28, 26, 23, 0.07);
+      transform: translateY(-3px);
+    }
+
+    .edu-img {
+      aspect-ratio: 16/9;
+    }
+
+    .edu-body {
+      padding: 1.8rem;
+    }
+
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .edu-inst {
+      font-size: var(--fs-sm);
+      color: var(--ink2);
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .edu-year {
+      font-size: var(--fs-xs);
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.2rem;
+    }
+
+    .edu-score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+
+    .edu-score-l {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* campus gallery */
+    .campus-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .campus-photo {
+      aspect-ratio: 16/9;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 2.8rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-lg);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .footer-copy {
+      font-size: var(--fs-xs);
+      color: var(--dusty);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:980px) {
+      nav {
+        padding: 0 1.8rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 3.5rem 1.8rem 3rem;
+        min-height: auto;
+        gap: 3rem;
+      }
+
+      .tiles {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 1.8rem 4rem;
+      }
+
+      .section {
+        padding: 4rem 1.8rem;
+      }
+
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ach-gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .campus-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .ach-item {
+        grid-template-columns: 2.5rem 1fr;
+      }
+
+      .ach-badge {
+        display: none;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+        padding: 2rem 1.8rem;
+      }
+    }
+
+    @media(max-width:580px) {
+      .tiles {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ach-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">Avneet <span>Kaur</span></a>
+    <ul class="nav-links">
+      <li><button onclick="showPage('home')">Home</button></li>
+      <li><button onclick="showPage('experience')">Experience</button></li>
+      <li><button onclick="showPage('projects')">Projects</button></li>
+      <li><button onclick="showPage('skills')">Skills</button></li>
+      <li><button onclick="showPage('achievements')">Awards</button></li>
+      <li><button onclick="showPage('education')">Education</button></li>
+      <li><a href="mailto:Av.kaor0509@gmail.com" class="nav-cta">Contact</a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mob">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('experience')">Experience</button>
+    <button onclick="showPage('projects')">Projects</button>
+    <button onclick="showPage('skills')">Skills</button>
+    <button onclick="showPage('achievements')">Awards</button>
+    <button onclick="showPage('education')">Education</button>
+    <a href="mailto:Av.kaor0509@gmail.com">Contact</a>
+  </div>
+
+  <!-- ══════════════════════ HOME ══════════════════════ -->
+  <div id="home" class="page active">
+
+    <div class="hero">
+      <div>
+        <div class="hero-eyebrow"><span>B.Tech CSE · Bennett University · 2027</span></div>
+        <h1 class="hero-name">Avneet<br><em>Kaur</em></h1>
+        <p class="hero-role">AI / ML Engineer &amp; Full-Stack Developer</p>
+        <p class="hero-p">Building intelligent systems that solve real-world problems — from smart traffic management to
+          AI-powered interview curation. 2× National SIH Winner · International Hackathon Champion.</p>
+        <div class="hero-btns">
+          <button class="btn-outline" onclick="showPage('projects')">View Projects</button>
+          <button class="btn-outline" onclick="showPage('achievements')">Awards &amp; Wins</button>
+          <a href="https://www.linkedin.com/in/avneet-kaur-a923b32a5" target="_blank" class="btn-outline"
+            style="text-decoration:none;">LinkedIn</a>
+          <a href="docs/Anveet-Kaur-Resume-cse-2023–2027.pdf" target="_blank" class="btn-outline"
+            style="text-decoration:none;">Resume</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-card">
+          <!-- Profile photo placeholder -->
+          <div class="img-placeholder hc-photo has-image" style="aspect-ratio:4/3;">
+            <img src="images/profile.jpg" alt="Avneet Kaur profile photo">
+          </div>
+          <div class="hc-body">
+            <div class="hc-name">Avneet Kaur</div>
+            <div class="hc-title">AI/ML · GenAI · Full-Stack Developer</div>
+            <div class="hc-divider"></div>
+            <div class="hc-stats">
+              <div>
+                <div class="hc-stat-n">2×</div>
+                <div class="hc-stat-l">SIH National Winner</div>
+              </div>
+              <div>
+                <div class="hc-stat-n">8.67</div>
+                <div class="hc-stat-l">CGPA</div>
+              </div>
+              <div>
+                <div class="hc-stat-n">5+</div>
+                <div class="hc-stat-l">Hackathon Wins</div>
+              </div>
+              <div>
+                <div class="hc-stat-n">60%</div>
+                <div class="hc-stat-l">Accuracy Lift at DRDO</div>
+              </div>
+            </div>
+            <div class="hc-tags">
+              <span class="tag accent">LLM Integration</span>
+              <span class="tag accent">RAG</span>
+              <span class="tag accent">GenAI</span>
+              <span class="tag">Python</span>
+              <span class="tag">Vector DB</span>
+              <span class="tag">Reinforcement Learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile" onclick="showPage('experience')">
+        <div class="tile-icon">🏢</div>
+        <div class="tile-title">Experience</div>
+        <div class="tile-sub">DRDO Project Intern</div>
+      </div>
+      <div class="tile" onclick="showPage('projects')">
+        <div class="tile-icon">⚡</div>
+        <div class="tile-title">Projects</div>
+        <div class="tile-sub">4 featured builds</div>
+      </div>
+      <div class="tile" onclick="showPage('skills')">
+        <div class="tile-icon">🛠</div>
+        <div class="tile-title">Skills</div>
+        <div class="tile-sub">AI/ML · Web · Databases</div>
+      </div>
+      <div class="tile" onclick="showPage('achievements')">
+        <div class="tile-icon">🏆</div>
+        <div class="tile-title">Awards</div>
+        <div class="tile-sub">8 major wins</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-name">Avneet Kaur</div>
+      <div class="footer-copy">B.Tech CSE · Bennett University · Greater Noida · 2023–2027</div>
+    </footer>
+  </div>
+
+  <!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
+  <div id="experience" class="page">
+    <div class="section">
+      <div class="sec-header">
+        <div class="sec-eyebrow"><span>Professional Experience</span></div>
+        <h2 class="sec-title">Where I've <em>Worked</em></h2>
+        <p class="sec-desc">Applying AI/ML research to national-scale government systems, working with defence and
+          recruitment technology at DRDO.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <div class="exp-item">
+        <div>
+          <div class="exp-org">RAC, DRDO</div>
+          <div class="exp-role">Project Intern</div>
+          <div class="exp-period">June 2025 — Present</div>
+          <div style="margin-top:0.6rem;font-size:var(--fs-sm);color:var(--muted);font-style:italic;line-height:1.6;">
+            Recruitment Assessment Center<br>Defence Research & Development Organisation<br>Government of India
+          </div>
+          <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span class="tag accent">GenAI</span><span class="tag accent">LLMs</span>
+            <span class="tag">ML Similarity</span><span class="tag">Web Scraping</span><span class="tag">Python</span>
+          </div>
+          <!-- DRDO workplace photo -->
+          <div class="img-placeholder exp-img has-image" style="margin-top:1.8rem;">
+            <img src="images/drdo.jpg" alt="DRDO Workspace Photo">
+          </div>
+        </div>
+        <div>
+          <ul class="exp-points">
+            <li>Designed the architecture for a Gen AI-powered Interview Curation system, leveraging ML similarity
+              measures and large language models to intelligently match candidates with evaluators.</li>
+            <li>Developed the end-to-end system to reduce manual HR effort and improve panel–candidate match accuracy by
+              <strong>60%</strong>, significantly streamlining the recruitment workflow.
+            </li>
+            <li>Integrated automated web scraping to fetch evaluator profiles in real time, enabling dynamic and
+              accurate panel recommendations without any manual input.</li>
+          </ul>
+          <!-- Work in action photo -->
+          <div class="img-placeholder has-image" style="aspect-ratio:16/9;margin-top:2rem;">
+            <img src="images/in-action.jpg" alt="Working / Project Demo Photo">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-name">Avneet Kaur</div>
+      <div class="footer-copy">B.Tech CSE · Bennett University · 2023–2027</div>
+    </footer>
+  </div>
+
+  <!-- ══════════════════════ PROJECTS ══════════════════════ -->
+  <div id="projects" class="page">
+    <div class="section">
+      <div class="sec-header">
+        <div class="sec-eyebrow"><span>Selected Projects</span></div>
+        <h2 class="sec-title">What I've <em>Built</em></h2>
+        <p class="sec-desc">Award-winning projects spanning intelligent traffic systems, AI-powered HR tools, voice
+          agents, and ambient IoT.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Pravah -->
+        <div class="proj-card">
+          <div style="display: flex; flex-direction: column;">
+            <div class="ach-photo-title" style="padding-left: 1.5rem; padding-right: 1.5rem; border-top: none;">
+              <div class="apt-bar"></div>
+              <div class="apt-text">Pravah</div>
+              <span class="apt-badge">SIH 2025 Winner</span>
+            </div>
+            <div class="img-placeholder proj-img has-image">
+              <img src="images/project-pravah.jpg" alt="Pravah project screenshot">
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-badge">🏆 SIH 2025 National Winner</div>
+            <div class="proj-title">Pravah: AI-Powered Smart Traffic Management</div>
+            <div class="proj-subtitle">Sep 2025 – Present</div>
+            <div class="proj-stack">
+              <span class="stack-tag">Python</span><span class="stack-tag">OpenCV</span><span
+                class="stack-tag">SUMO</span>
+              <span class="stack-tag">Pygame</span><span class="stack-tag">Reinforcement Learning</span>
+              <span class="stack-tag">LSTM</span><span class="stack-tag">FastAPI</span>
+            </div>
+            <ul class="proj-points">
+              <li>Optimised traffic signal timings using Reinforcement Learning to dynamically adapt to real-time
+                congestion patterns across urban intersections.</li>
+              <li>Utilized OpenCV and SUMO & Pygame for real-time vehicle detection and urban traffic simulation at
+                scale.</li>
+              <li>Developed a commuter app and admin dashboard with LSTM-based congestion forecasting, achieving a
+                <strong>15–20% reduction</strong> in travel time.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MIRA -->
+        <div class="proj-card">
+          <div style="display: flex; flex-direction: column;">
+            <div class="ach-photo-title" style="padding-left: 1.5rem; padding-right: 1.5rem; border-top: none;">
+              <div class="apt-bar"></div>
+              <div class="apt-text">MIRA</div>
+              <span class="apt-badge">SIH 2024 Winner</span>
+            </div>
+            <div class="img-placeholder proj-img has-image">
+              <img src="images/project-mira.jpg" alt="MIRA project screenshot">
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-badge">🏆 SIH 2024 National Winner</div>
+            <div class="proj-title">MIRA: Matching Interviewers with Resume using AI</div>
+            <div class="proj-subtitle">September – December 2024</div>
+            <div class="proj-stack">
+              <span class="stack-tag">Vector DB</span><span class="stack-tag">ETL Pipelines</span>
+              <span class="stack-tag">LLM</span><span class="stack-tag">Mistral-7B</span>
+              <span class="stack-tag">SBERT</span><span class="stack-tag">BERT</span>
+            </div>
+            <ul class="proj-points">
+              <li>Built an LLM-based expert panel matcher that curates interviewers by skill-expertise alignment,
+                reducing HR effort and manual screening time significantly.</li>
+              <li>Built a resume parsing pipeline using ETL and vector embeddings, reducing processing time by over
+                <strong>40%</strong> through automated semantic matching.
+              </li>
+              <li>Engineered a scalable recommendation system using dense vector search to handle high query loads with
+                low latency.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Convera -->
+        <div class="proj-card">
+          <div style="display: flex; flex-direction: column;">
+            <div class="ach-photo-title" style="padding-left: 1.5rem; padding-right: 1.5rem; border-top: none;">
+              <div class="apt-bar"></div>
+              <div class="apt-text">Convera AI</div>
+              <span class="apt-badge">Hackachinno Winner</span>
+            </div>
+            <div class="img-placeholder proj-img has-image">
+              <img src="images/project-convera.jpg" alt="Convera AI project screenshot">
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-badge">🏆 Hackachinno 2025 Winner</div>
+            <div class="proj-title">Convera AI: Voice-Based Knowledge Builder</div>
+            <div class="proj-subtitle">February – June 2025</div>
+            <div class="proj-stack">
+              <span class="stack-tag">Mistral (Ollama)</span><span class="stack-tag">Whisper</span>
+              <span class="stack-tag">FastAPI</span><span class="stack-tag">Flask</span><span
+                class="stack-tag">SQLite</span>
+            </div>
+            <ul class="proj-points">
+              <li>Engineered a voice-driven AI that builds custom knowledge bases from conversations using Whisper for
+                speech-to-text, increasing accessibility by over <strong>40%</strong>.</li>
+              <li>Deployed a full-stack web application to deliver real-time, context-aware, and profession-specific
+                responses through a conversational UI.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Weather -->
+        <div class="proj-card">
+          <div style="display: flex; flex-direction: column;">
+            <div class="ach-photo-title" style="padding-left: 1.5rem; padding-right: 1.5rem; border-top: none;">
+              <div class="apt-bar"></div>
+              <div class="apt-text">Smart Lamp</div>
+              <span class="apt-badge">IoT Project</span>
+            </div>
+            <div class="img-placeholder proj-img has-image">
+              <img src="images/calm-tech-weather.jpg" alt="Weather notification smart lamp project photo">
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-badge">IoT · Calm Tech</div>
+            <div class="proj-title">Weather Notification Smart Lamp</div>
+            <div class="proj-subtitle">IoT &amp; Calm Technology</div>
+            <div class="proj-stack">
+              <span class="stack-tag">IoT</span><span class="stack-tag">Calm Tech</span><span class="stack-tag">Embedded
+                Systems</span>
+            </div>
+            <ul class="proj-points">
+              <li>Designed an IoT-powered smart lamp that delivers weather predictions through ambient light cues —
+                non-intrusive and calm by design.</li>
+              <li>Blends seamlessly into everyday life, delivering information passively through light rather than
+                disruptive notifications.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-name">Avneet Kaur</div>
+      <div class="footer-copy">B.Tech CSE · Bennett University · 2023–2027</div>
+    </footer>
+  </div>
+
+  <!-- ══════════════════════ SKILLS ══════════════════════ -->
+  <div id="skills" class="page">
+    <div class="section">
+      <div class="sec-header">
+        <div class="sec-eyebrow"><span>Technical Skills</span></div>
+        <h2 class="sec-title">Tools &amp; <em>Technologies</em></h2>
+        <p class="sec-desc">A broad technical stack spanning AI/ML research, full-stack development, and modern database
+          systems.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="sg-icon">💻</div>
+          <div class="sg-title">Languages</div>
+          <div class="sg-tags">
+            <span class="tag accent">C++</span><span class="tag accent">Python</span>
+            <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-icon">🧠</div>
+          <div class="sg-title">AI / ML &amp; GenAI</div>
+          <div class="sg-tags">
+            <span class="tag accent">LLM Integration</span><span class="tag accent">GenAI</span>
+            <span class="tag accent">RAG</span><span class="tag">Reinforcement Learning</span>
+            <span class="tag">TensorFlow</span><span class="tag">Scikit-learn</span>
+            <span class="tag">NumPy</span><span class="tag">Pandas</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-icon">🌐</div>
+          <div class="sg-title">Web &amp; Frameworks</div>
+          <div class="sg-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">Flask</span><span class="tag">Web Speech API</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-icon">🗄️</div>
+          <div class="sg-title">Databases</div>
+          <div class="sg-tags">
+            <span class="tag accent">Qdrant</span><span class="tag accent">Vector DB</span>
+            <span class="tag">MongoDB</span><span class="tag">MySQL</span><span class="tag">SQLite</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-icon">🤖</div>
+          <div class="sg-title">Models &amp; NLP</div>
+          <div class="sg-tags">
+            <span class="tag accent">Mistral-7B</span><span class="tag accent">SBERT</span>
+            <span class="tag">BERT</span><span class="tag">Whisper</span>
+            <span class="tag">Ollama</span><span class="tag">LSTM</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-icon">🔧</div>
+          <div class="sg-title">Tools &amp; Other</div>
+          <div class="sg-tags">
+            <span class="tag">ETL Pipelines</span><span class="tag">OpenCV</span>
+            <span class="tag">SUMO</span><span class="tag">Web Scraping</span>
+            <span class="tag">Unit Testing</span><span class="tag">IoT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-name">Avneet Kaur</div>
+      <div class="footer-copy">B.Tech CSE · Bennett University · 2023–2027</div>
+    </footer>
+  </div>
+
+  <!-- ══════════════════════ ACHIEVEMENTS ══════════════════════ -->
+  <div id="achievements" class="page">
+    <div class="section">
+      <div class="sec-header">
+        <div class="sec-eyebrow"><span>Awards &amp; Hackathons</span></div>
+        <h2 class="sec-title">Recognition &amp; <em>Wins</em></h2>
+        <p class="sec-desc">8 major awards spanning international competitions, national government hackathons, and
+          Microsoft AI challenges.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <!-- PHOTO GALLERY -->
+      <div style="margin-bottom:1rem;">
+        <div
+          style="font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);margin-bottom:1.2rem;color:var(--ink2);">
+          Award Moments</div>
+      </div>
+      <div class="ach-gallery">
+        <div class="ach-photo">
+          <div class="ach-photo-title">
+            <div class="apt-bar"></div>
+            <div class="apt-text">SIH 2025 Award Ceremony</div>
+            <span class="apt-badge">SIH 2025</span>
+          </div>
+          <div class="img-placeholder has-image">
+            <img src="images/award-sih2025.jpg" alt="SIH 2025 award ceremony">
+          </div>
+        </div>
+        <div class="ach-photo">
+          <div class="ach-photo-title">
+            <div class="apt-bar"></div>
+            <div class="apt-text">SIH 2024 Award Ceremony</div>
+            <span class="apt-badge">SIH 2024</span>
+          </div>
+          <div class="img-placeholder has-image">
+            <img src="images/award-sih2024.jpg" alt="SIH 2024 award ceremony">
+          </div>
+        </div>
+        <div class="ach-photo">
+          <div class="ach-photo-title">
+            <div class="apt-bar"></div>
+            <div class="apt-text">UK University Hackathon</div>
+            <span class="apt-badge">International</span>
+          </div>
+          <div class="img-placeholder has-image">
+            <img src="images/award-international.jpg" alt="International hackathon award photo">
+          </div>
+        </div>
+        <div class="ach-photo">
+          <div class="ach-photo-title">
+            <div class="apt-bar"></div>
+            <div class="apt-text">AI Innovate 2025 — Microsoft</div>
+            <span class="apt-badge">Microsoft</span>
+          </div>
+          <div class="img-placeholder has-image">
+            <img src="images/award-microsoft.jpg" alt="Microsoft AI Innovate award photo">
+          </div>
+        </div>
+        <div class="ach-photo">
+          <div class="ach-photo-title">
+            <div class="apt-bar"></div>
+            <div class="apt-text">Excellence Award — Times Now Summit</div>
+            <span class="apt-badge">Times Now</span>
+          </div>
+          <div class="img-placeholder has-image">
+            <img src="images/award-excellence-award.jpg" alt="Times Now Excellence Award photo">
+          </div>
+        </div>
+        <div class="ach-photo">
+          <div class="ach-photo-title">
+            <div class="apt-bar"></div>
+            <div class="apt-text">Hackaccino 2025 — Track Winner</div>
+            <span class="apt-badge">Hackaccino</span>
+          </div>
+          <div class="img-placeholder has-image">
+            <img src="images/award-hackaccino.jpg" alt="Hackaccino 2025 award photo">
+          </div>
+        </div>
+      </div>
+
+      <!-- ACHIEVEMENTS LIST -->
+      <div class="ach-list">
+        <div class="ach-item">
+          <div class="ach-icon">🌍</div>
+          <div>
+            <div class="ach-title">Cyber AI and Agentic AI Hackathon 2025</div>
+            <div class="ach-sub">International Winner · University of Derby &amp; Ulster University, UK</div>
+          </div>
+          <span class="ach-badge intl">International</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">🏅</div>
+          <div>
+            <div class="ach-title">Student Innovation Excellence Award 2025</div>
+            <div class="ach-sub">Times Now Education Summit · Honored for AI and Smart Mobility</div>
+          </div>
+          <span class="ach-badge gold">Excellence Award</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">🇮🇳</div>
+          <div>
+            <div class="ach-title">Smart India Hackathon 2025</div>
+            <div class="ach-sub">National Winner · Government of India · Pravah Smart Traffic</div>
+          </div>
+          <span class="ach-badge gold">National Winner</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">🇮🇳</div>
+          <div>
+            <div class="ach-title">Smart India Hackathon 2024</div>
+            <div class="ach-sub">National Winner · Government of India · MIRA Interview Matcher</div>
+          </div>
+          <span class="ach-badge gold">National Winner</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">🪟</div>
+          <div>
+            <div class="ach-title">AI Innovate 2025 — Microsoft</div>
+            <div class="ach-sub">1st Runner-up · Top 1.7% among 300+ teams</div>
+          </div>
+          <span class="ach-badge silver">1st Runner-up</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">☕</div>
+          <div>
+            <div class="ach-title">Hackaccino 2025</div>
+            <div class="ach-sub">Track Winner · 1800+ participants · Convera AI</div>
+          </div>
+          <span class="ach-badge gold">Track Winner</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">🏫</div>
+          <div>
+            <div class="ach-title">Smart BU Hackathon 2025</div>
+            <div class="ach-sub">Top 1.75% · Ranked 8 out of 400+ teams</div>
+          </div>
+          <span class="ach-badge silver">Top 1.75%</span>
+        </div>
+        <div class="ach-item">
+          <div class="ach-icon">🏫</div>
+          <div>
+            <div class="ach-title">Smart BU Hackathon 2024</div>
+            <div class="ach-sub">Top 1.75% · Ranked 15 out of 400+ teams</div>
+          </div>
+          <span class="ach-badge silver">Top 1.75%</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-name">Avneet Kaur</div>
+      <div class="footer-copy">B.Tech CSE · Bennett University · 2023–2027</div>
+    </footer>
+  </div>
+
+  <!-- ══════════════════════ EDUCATION ══════════════════════ -->
+  <div id="education" class="page">
+    <div class="section">
+      <div class="sec-header">
+        <div class="sec-eyebrow"><span>Academic Background</span></div>
+        <h2 class="sec-title">My <em>Education</em></h2>
+        <p class="sec-desc">Computer Science engineering with consistent academic performance and a focus on applied
+          AI/ML research.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="img-placeholder edu-img has-image">
+            <img src="images/bannett-uni.png" alt="Bennett University Campus">
+          </div>
+          <div class="edu-body">
+            <div class="edu-degree">B.Tech — Computer Science</div>
+            <div class="edu-inst">Bennett University, Greater Noida</div>
+            <div class="edu-year">2023 – 2027</div>
+            <div class="edu-score">8.67</div>
+            <div class="edu-score-l">CGPA</div>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="img-placeholder edu-img has-image">
+            <img src="images/dav-kkr-senior.jpg" alt="D.A.V. School Kurukshetra Senior Secondary">
+          </div>
+          <div class="edu-body">
+            <div class="edu-degree">Senior Secondary (XII)</div>
+            <div class="edu-inst">D.A.V. Public School, Kurukshetra</div>
+            <div class="edu-year">2022 – 2023</div>
+            <div class="edu-score">71.5%</div>
+            <div class="edu-score-l">Percentage</div>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="img-placeholder edu-img has-image">
+            <img src="images/dav-kkr-10th.jpg" alt="D.A.V. School Kurukshetra Secondary">
+          </div>
+          <div class="edu-body">
+            <div class="edu-degree">Secondary (X)</div>
+            <div class="edu-inst">D.A.V. Public School, Kurukshetra</div>
+            <div class="edu-year">2020 – 2021</div>
+            <div class="edu-score">80.5%</div>
+            <div class="edu-score-l">Percentage</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campus Life Photos -->
+      <div style="margin:3.5rem 0 1.2rem;">
+        <div
+          style="font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);color:var(--ink2);margin-bottom:1.2rem;">
+          Campus Life &amp; Hackathons</div>
+      </div>
+      <div class="campus-gallery">
+        <div class="campus-photo">
+          <div class="img-placeholder has-image" style="height:100%;min-height:200px;">
+            <img src="images/campus-hacka.png" alt="Bennett University Campus">
+          </div>
+        </div>
+        <div class="campus-photo">
+          <div class="img-placeholder has-image" style="height:100%;min-height:200px;">
+            <img src="images/college-hecka.png" alt="College Hackathon Team">
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div
+        style="margin-top:3.5rem;background:var(--paper);border:1px solid var(--border);padding:3.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
+        <div>
+          <div
+            style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:0.6rem;line-height:1.1;">
+            Let's <em style="font-style:italic;color:var(--terracotta)">Connect</em></div>
+          <div style="font-size:var(--fs-md);color:var(--muted);font-weight:300;line-height:1.7;">Open to opportunities,
+            collaborations, and interesting conversations about AI/ML. Reach me at <span
+              style="color:var(--terracotta)"><a href="mailto:Av.kaor0509@gmail.com">Av.kaor0509@gmail.com</a></span>
+          </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="mailto:Av.kaor0509@gmail.com" class="btn-outline" style="text-decoration:none">Email Me</a>
+          <a href="https://www.linkedin.com/in/avneet-kaur-a923b32a5" target="_blank" class="btn-outline"
+            style="text-decoration:none">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-name">Avneet Kaur</div>
+      <div class="footer-copy">B.Tech CSE · Bennett University · Greater Noida · 2023–2027</div>
+    </footer>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const t = document.getElementById(id);
+      if (t) {
+        t.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // update nav active state
+      document.querySelectorAll('.nav-links button, .mobile-menu button').forEach(btn => {
+        btn.style.color = '';
+      });
+      // close mobile menu if open
+      const mm = document.querySelector('.mobile-menu');
+      const hb = document.querySelector('.hamburger');
+      if (mm) mm.style.display = 'none';
+      if (hb) hb.classList.remove('active');
+    }
+
+    // Hamburger toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+  </script>
+</body>
+
+</html>
